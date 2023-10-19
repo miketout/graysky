@@ -104,6 +104,23 @@ const defineConfig = (_: ConfigContext): ExpoConfig => ({
           "This app accesses your camera to let you add photos from your camera to your posts.",
       },
     ],
+    [
+      "./plugins/withAndroidShareExtension/index",
+      {
+        androidIntentFilters: ["text/*", "image/*"],
+      },
+    ],
+    [
+      "expo-config-plugin-ios-share-extension",
+      {
+        activationRules: {
+          NSExtensionActivationSupportsText: true,
+          NSExtensionActivationSupportsWebURLWithMaxCount: 1,
+          NSExtensionActivationSupportsWebPageWithMaxCount: 1,
+          NSExtensionActivationSupportsImageWithMaxCount: 4,
+        },
+      },
+    ],
   ],
 });
 
